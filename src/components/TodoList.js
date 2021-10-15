@@ -49,7 +49,7 @@ function TodoList() {
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
-      />
+    />
     </>
   );
 }
