@@ -9,7 +9,7 @@ function TodoList() {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-
+    console.log({todo})
     const newTodos = [todo, ...todos];
 
     setTodos(newTodos);

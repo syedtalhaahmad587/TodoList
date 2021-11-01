@@ -26,7 +26,9 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
       key={index}
     >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+      {!todo.edit ?
+        <>
+        <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
       </div>
       <div className='icons'>
@@ -35,10 +37,25 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
           className='delete-icon'
         />
         <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: todo.id, value: todo.text, edit: true })}
           className='edit-icon'
         />
       </div>
+      </>
+      : <>
+          <input
+            placeholder='Update your item'
+            // value={input}
+            // onChange={handleChange}
+            name='text'
+            // ref={inputRef}
+            className='todo-input edit'
+          />
+          <button className='todo-button edit'>
+            Update
+          </button>
+        </>
+      }
     </div>
   ));
 };
